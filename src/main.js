@@ -1,20 +1,32 @@
-/**
- * main.js
- *
- * Bootstraps Vuetify and other plugins then mounts the App`
- */
-
 // Plugins
-import { registerPlugins } from '@/plugins'
+import { registerPlugins } from "@/plugins";
+import { createRouter, createWebHistory } from "vue-router";
 
 // Components
-import App from './App.vue'
+import App from "./App.vue";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
+
+//styles
+import "./scss/main.scss";
 
 // Composables
-import { createApp } from 'vue'
+import { createApp } from "vue";
 
-const app = createApp(App)
+const app = createApp(App);
+registerPlugins(app);
 
-registerPlugins(app)
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    { path: "/", component: Home },
+    { path: "/about", component: About },
+    { path: "/contact", component: Contact },
+    { path: "/:pathMatch(.*)*", component: NotFound },
+  ],
+});
 
-app.mount('#app')
+app.use(router);
+app.mount("#app");
