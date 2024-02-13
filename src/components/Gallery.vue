@@ -7,7 +7,9 @@
           v-for="item in items"
           :key="item.id"
           class="d-flex child-flex"
-          cols="4"
+          cols="12"
+          sm="6"
+          md="4"
         >
           <v-img
             :src="item.src"
@@ -15,6 +17,7 @@
             aspect-ratio="1"
             cover
             class="bg-grey-lighten-2"
+            height="370px"
           >
             <template v-slot:placeholder>
               <v-row class="fill-height ma-0" align="center" justify="center">

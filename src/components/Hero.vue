@@ -1,6 +1,6 @@
 <template>
   <div class="heroBlock">
-    <v-carousel hide-delimiters>
+    <v-carousel cycle :show-arrows="false">
       <v-carousel-item
         v-for="(item, i) in items"
         :key="i"
@@ -36,7 +36,7 @@ export default {
         },
         {
           src: imgCarousel2,
-          title: "We are hard worker",
+          title: "We are hardworking",
         },
         {
           src: imgCarousel3,
